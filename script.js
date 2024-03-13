@@ -1,13 +1,16 @@
-// Function to fetch and populate currency options
+// This function fill the select menu with options from the api
 function populateCurrencyOptions() {
+  // you can change the initially value by replace word "USD" at the end of URL with any currency that you wish
   fetch("https://api.exchangerate-api.com/v4/latest/USD")
     .then((response) => response.json())
     .then((data) => {
-      const currencies = Object.keys(data.rates);
+      const currencies = Object.keys(data.rates); // get the name of the currencies
       const fromSelect = document.getElementById("from");
       const toSelect = document.getElementById("to");
 
       currencies.forEach((currency) => {
+        // iterates through them
+        // it creates an <option> element, sets its text and value attributes to the currency code, and appends it to both the from and to select elements.
         const option1 = document.createElement("option");
         option1.text = currency;
         option1.value = currency;
@@ -48,7 +51,7 @@ function convert() {
     });
 }
 
-// Call the function to populate currency options when the page loads
+// Call the function when the page loads
 window.onload = function () {
   populateCurrencyOptions();
 };
