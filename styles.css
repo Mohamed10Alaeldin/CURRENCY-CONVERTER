@@ -8,7 +8,7 @@ body {
 .container {
   max-width: 400px;
   margin: 0 auto;
-  background-color: #27e00b;
+  background-color: #fff;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #fff;
+  color: #000;
 }
 
 label {
@@ -58,7 +58,7 @@ button:hover {
   border-radius: 3px;
   font-size: 16px;
   text-align: center;
-  background-color: #e6df13;
+  /* background-color: #e6df13; */
   height: 15px;
   margin-bottom: 10px;
 }
