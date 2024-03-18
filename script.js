@@ -29,6 +29,11 @@ function populateCurrencyOptions() {
 
 // Function to perform currency conversion
 function convert() {
+  let container = document.querySelector(".container")
+  let result = document.createElement("div")
+  result.style.cssText = "background-color: var(--green); color: var(--white); position: absolute; bottom: -100px; left: 50%; transform: translate(-50%); padding: 20px; border-radius: 5px; width: 100%; text-align: center;"
+  container.appendChild(result)
+  
   const amount = document.getElementById("amount").value;
   const fromCurrency = document.getElementById("from").value;
   const toCurrency = document.getElementById("to").value;
@@ -38,15 +43,13 @@ function convert() {
     .then((data) => {
       const exchangeRate = data.rates[toCurrency];
       const convertedAmount = amount * exchangeRate;
-      document.getElementById(
-        "result"
-      ).innerText = `${amount} ${fromCurrency} equals ${convertedAmount.toFixed(
+      result.innerText = `${amount} ${fromCurrency} equals ${convertedAmount.toFixed(
         2
       )} ${toCurrency}`;
     })
     .catch((error) => {
       console.error("Error:", error);
-      document.getElementById("result").innerText =
+      result.innerText =
         "An error occurred. Please try again later.";
     });
 }
